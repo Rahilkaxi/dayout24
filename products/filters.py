@@ -1,5 +1,6 @@
 from .models import Product
 import django_filters
+from django.forms import ModelForm, Textarea
 from django_filters.filters import RangeFilter
 
 
@@ -11,4 +12,3 @@ class ProductFilter(django_filters.FilterSet):
     class Meta:
         model = Product
         fields = ['name']
-        

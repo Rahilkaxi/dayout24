@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'cloudinary',
+    
+    'widget_tweaks',
 
     'cart',
     'checkout',
