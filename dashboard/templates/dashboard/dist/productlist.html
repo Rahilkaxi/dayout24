@@ -1,0 +1,43 @@
+{% extends 'dashboard/dist/basic.html' %}
+
+{% load static %}
+{%block title%}All Products{%endblock%}
+{% block page %}All Products{% endblock %}
+
+
+{%  block body %}
+
+<style>
+
+</style>
+
+<!--start body-->
+<div class="container-fluid">
+	<hr>
+<ol class="list-unstyled">
+	{% for product in filter.qs %}
+  <li class="media">
+<!--    <img src="{% static 'images/dif.png' %}" style="border:1px solid teal;" class="mr-3"  width="64px" alt="...">-->
+      <img src="{{ product.mainimage.url }}" style="border:1px solid teal;" class="mr-3" height="60px" width="64px" >
+    <div class="media-body">
+      <h5 class="mt-0 mb-1">{{ product.name }}</h5>
+      <strong>Price :</strong> Rs.{{ product.price }}
+		<a href="{% url 'dash:d-p' product.id %}" class="btn btn-danger btn-sm" style="display:inline-block; position:absolute; right:26px; " > Remove</a>
+		<a href="{% url 'dash:u-p' product.id %}" class="btn btn-primary btn-sm" style="display:inline-block; position:absolute; right:105px; " > Update</a>
+    </div>
+  </li>
+	<hr>
+	{% endfor %}
+</ol>
+</div>
+
+
+<!--end body-->
+
+
+<script>
+
+</script>
+
+
+{%  endblock %}

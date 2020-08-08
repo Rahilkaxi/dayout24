@@ -1,0 +1,56 @@
+{% extends 'products/base.html' %} 
+{% load static %}
+{% load crispy_forms_tags %}
+{%block title%}Dayout24{% endblock %}
+<style>
+/* 	img {
+		margin: 30px;
+
+	} */
+</style>
+{% block sh %}
+{% include 'products/sh.html' %}
+{% endblock %}
+{% block content %}
+
+
+
+<div class="container my-5">
+<!-- 	<h2 class="my-5">Products</h2> -->
+	<div class="row">
+<!-- 			<form method="get">
+				{{ filter.form| crispy }}
+				<button type="submit">Search</button>
+			</form> -->
+		<div class="col-md-9">
+			<div class="row">
+				{% for product in filter.qs %}
+				<div class="col-md-6 col-sm-12 col-lg-4">
+					<figure class="card card-product">
+						<div class="img-wrap">
+							<img src="{{ product.mainimage.url }}">
+						</div>
+						<figcaption class="info-wrap">
+							<h6 class="title text-dots"><a href="{{ product.get_absolute_url }}">{{ product.name }}</a></h6>
+							<div class="action-wrap">
+								<a href="addcart/{{ product.id }}" class="btn btn-primary btn-sm"> Add to Cart </a>
+								<!--            			<a href="cart/" class="btn btn-primary btn-sm"> View Cart </a>-->
+								<a href="remove/{{ product.id }}" class="btn btn-danger btn-sm"> Remove</a>
+								<!-- price-wrap.// -->
+								<div class="price-wrap h5">
+									<span class="price-new">Rs.{{product.price| floatformat:2}}</span>
+									<!--							<del class="price-old">Rs.{{product.f_price}}</del>-->
+								</div>
+							</div>
+							<!-- action-wrap -->
+						</figcaption>
+					</figure>
+					<!-- card // -->
+				</div>
+				<!-- col // -->
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}
