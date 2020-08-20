@@ -22,17 +22,15 @@
                     background-color: lightblue;
                 }
             } */
-    .sb-sidenav-menu{
-/*         height: 100% !important; */
+    .sb {
+        height: 100% !important;
         position: fixed !important;
         overflow-y: scroll !important;
-/*         -webkit-overflow-scrolling: touch !important; */
+        -webkit-overflow-scrolling: touch !important;
     }
     .sb-sidenav-footer {
         position:fixed;
-        top:90%;
-        padding-right: 5.1em !important;
-        height: 100% !important;
+        top: 90%;
     }
 
     .card{
@@ -123,6 +121,7 @@
         <div id="layoutSidenav">
             <div id="layoutSidenav_nav">
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                    <div class="sb">
                     <div class="sb-sidenav-menu">
                         <div class="nav">
 <!--                             <div class="sb-sidenav-menu-heading">Core</div> -->
@@ -181,8 +180,9 @@
                     {% else %}
                      <div class="sb-sidenav-footer">
                         <a  class="btn btn-primary" href="login/">Logi / Register</a>
-                    </div>
+                        </div>
                     {% endif %}
+                    </div>
                 </nav>
             </div>
             <div id="layoutSidenav_content">
