@@ -2,19 +2,36 @@
 {%load static%}
 
 {%block title%}Dayout24{% endblock %}
-{% block content %}
 
+
+{% block prod %}
+
+<style>
+    .img {
+        height: 350px;
+        width: 370px;
+    }
+     @media (max-width: 400px) {
+         .img {
+             height: 350px;
+             width: 330px;
+         }
+    }
+    .p-5 {
+    padding: 1rem!important;
+    }
+</style>
 
 <div class="container my-5">
 
 	
 <div class="card">
 	<div class="row">
-		<aside class="col-sm-5 border-right">
+		<aside class="col-sm-4 border-right">
 <article class="gallery-wrap"> 
 <div class="img-big-wrap">
 <!--  <div> <a href="#"><img src="/media/{{ object.mainimage }}" style="width: 450px"></a></div>-->
-  <a href="#"><img src="{{ product.mainimage.url }}" style=" height: 350px; width: 450px;"></a>
+  <a href="#"><img class="img" src="{{ product.mainimage.url }}"></a>
 </div> <!-- slider-product.// -->
 </article> <!-- gallery-wrap .end// -->
 		</aside>

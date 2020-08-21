@@ -16,6 +16,11 @@
 {% include 'products/bsh.html' %}
 {% endblock bsh %}
 
+{% block footer %}
+{% include 'products/footer.html' %}
+{% endblock %}
+
+
 {% block content %}
 
 
@@ -36,8 +41,8 @@
 							<img src="{{ product.mainimage.url }}">
 						</div>
 						<figcaption class="info-wrap">
-<!-- 							<h6 class="title text-dots"><a href="{{ product.get_absolute_url }}">{{ product.name }}</a></h6> -->
-                            <h6 class="title text-dots"><a href="#">{{ product.name }}</a></h6>
+							<h6 class="title text-dots"><a href="{{ product.get_absolute_url }}">{{ product.name }}</a></h6>
+<!--                             <h6 class="title text-dots"><a href="#">{{ product.name }}</a></h6> -->
 							<div class="action-wrap">
 								<a href="addcart/{{ product.id }}" class="btn btn-primary btn-sm"> Add to Cart </a>
 								<!--            			<a href="cart/" class="btn btn-primary btn-sm"> View Cart </a>-->
@@ -59,4 +64,7 @@
 		</div>
 	</div>
 </div>
+
+
 {% endblock %}
+
