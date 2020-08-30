@@ -1,5 +1,6 @@
 from django.utils.crypto import get_random_string
 from django.conf import settings
+from django.core.mail import send_mail
 from django.contrib import messages
 from django.shortcuts import render, get_object_or_404, redirect
 from cart.models import Order, Cart
@@ -48,8 +49,17 @@ def payment(request):
     order_total = order_qs[0].get_totals()
     totalCents = float(order_total * 100);
     total = round(totalCents, 2)
+    hello = "hey there"
     if request.method == 'POST':
-        orderId = get_random_string(length=6,
+        order.hello = "hey there"
+        message = request.POST['message']
+#         send_mail(f'{request.user} ',
+        send_mail('New Order',
+                  message,
+                  settings.EMAIL_HOST_USER,
+                  ['rahilkazi66@gmail.com'],
+                  fail_silently=False)
+        orderId = get_random_string(length=5,
                                     allowed_chars=u'abcdefhijklmnorstuvwxzABCDEFGHIJKLMNOPQRSTUVWXYZ')
         order.ordered = True
         order.orderId = f'{request.user}{orderId}'
@@ -69,3 +79,11 @@ def oderView(request):
     else:
         messages.warning(request, "You do not have an active order")
         return redirect('/')
+
+def CancelOrder(request, pk):
+    order = Order.objects.get(id=pk)
+#     order = Order.objects.filter(user=request.user, ordered=True)
+    order.delete()
+    return redirect('checkout:oderView')
+    contex = {}
+    return render(request, 'checkout/order.html', contex)

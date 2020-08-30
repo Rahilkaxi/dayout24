@@ -26,7 +26,15 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '81u*6g0lg)9z!ba+a$ehk)xt)x%rxgb$i1&amp;022shmi1jcgihb*'
 
 # SECURITY WARNING: don't run with debug turned on in production!
+# DEBUG = False
 DEBUG = True
+
+EMAIL_HOST = 'smtp.zoho.in'
+EMAIL_HOST_USER = 'rahilkazi66@gmail.com'
+EMAIL_HOST_PASSWORD = 'hellozoho'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 ALLOWED_HOSTS = ['*']
 
@@ -41,7 +49,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'cloudinary',
-    
+
     'widget_tweaks',
 
     'cart',
@@ -51,6 +59,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'django_filters',
 ]
+
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 MIDDLEWARE = [
