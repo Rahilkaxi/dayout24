@@ -123,17 +123,10 @@
                             <div class="sb-sidenav-menu-heading">Category</div>
                             <a class="nav-link" href="">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Flavour
+                                
+                                Mufasa Flavour
                             </a>
-                            <a class="nav-link" href="">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Page
-                            </a>
-                             <a class="nav-link" href="">
-                                <div class="sb-nav-link-icon"><i class="fa fa-shopping-cart"></i></div>
-                                Page
-                            </a>
-                            {% if request.user.is_authenticated %}
+                        
                             <div class="sb-sidenav-menu-heading">Account</div>
                             {% if request.user.is_superuser %}
                             <a class="nav-link" href="{% url 'dash:dashboard'%}">
@@ -149,17 +142,8 @@
                                 <div class="sb-nav-link-icon"><i class="fa fa-shopping-cart"></i></div>
                                 My Cart
                             </a>
-                            {% endif %}
+                           
                             
-                            <div class="sb-sidenav-menu-heading">Addons</div>
-                            <a class="nav-link" href="">
-                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                                Charts
-                            </a>
-                            <a class="nav-link" href="#">
-                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                                Tables
-                            </a>
                         </div>
                     </div>
                   {% if request.user.is_authenticated %}
